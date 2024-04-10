@@ -8,14 +8,13 @@ app.http('addcars', {
     handler: async (request, context) => {
         try {
 
-const jsonData = await fs.readFile(jsonf, 'utf8');
+const dataj = await fs.readFile(jsonf, 'utf8');
             const data = JSON.parse(jsonData);
 
-            // Add the new car to the existing data
-            data.push(newCar); // Assuming 'newCar' is the object you want to add
+            data.push(newCar); 
+            
 
-            // Save the updated data back to the file
-            await fs.writeFile(jsonf, JSON.stringify(data, null, 2), 'utf8');
+            await fs.writeFile(jsonf, JSON.stringify(data), 'utf8');
 
             return {
                 status: 200,
@@ -27,7 +26,7 @@ const jsonData = await fs.readFile(jsonf, 'utf8');
         } catch (error) {
             return {
                 status: 500,
-                body: 'Error: Unable to get cars'
+                body: 'Error: Unable to add car'
             };
         }
     }
