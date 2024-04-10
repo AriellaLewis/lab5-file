@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadCarsBtn = document.getElementById('loadCarsBtn');
     const carList = document.getElementById('carList');
     cars = [];
-    //each endpoint must be part of its own folder
     loadCarsBtn.addEventListener('click', () => {
-       
         fetch('/api/cars')
             .then(response => response.json())
             .then(data => {
@@ -83,3 +81,6 @@ carList.addEventListener('click', event => {
         removeCar(index);
     }
 });
+
+
+
