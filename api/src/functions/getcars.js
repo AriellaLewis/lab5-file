@@ -3,7 +3,7 @@ const path = require('path');
 const { app } = require('@azure/functions');
 
 
-const jsonFilePath = path.resolve(__dirname,'cars.json');
+const j = path.resolve(__dirname,'cars.json');
 
 
 app.http('getcars', {
@@ -11,7 +11,7 @@ app.http('getcars', {
     authLevel: 'anonymous',
     handler: async (request, context) => {
         try{
-        const jsonData = await fs.readFile(jsonFilePath, 'utf8');
+        const jsonData = await fs.readFile(j, 'utf8');
             const data = JSON.parse(jsonData);
 
             return {
