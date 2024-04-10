@@ -6,10 +6,7 @@ const { app } = require('@azure/functions');
 const jsonFilePath = path.resolve(__dirname,'cars.json');
 
 
-/**
- * Returns the cars array from the cars.json file
- */
-app.http('cars', {
+app.http('getcars', {
     methods: ['GET'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
@@ -27,7 +24,7 @@ app.http('cars', {
         }catch(error){
             return{
                 status:500,
-                body:'Internal Server Error. Failed to get cars.'
+                body:'Error: cant get cars'
             }
         }
     }
