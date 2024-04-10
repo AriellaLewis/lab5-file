@@ -71,7 +71,7 @@ function removeCar(index) {
             loadCarsBtn.click();
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error:', JSON.stringify(error));
         });
 }
 // Event delegation for remove buttons
