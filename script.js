@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadCarsBtn = document.getElementById('loadCarsBtn');
     const carList = document.getElementById('carList');
     cars = [];
+    //each endpoint must be part of its own folder
     loadCarsBtn.addEventListener('click', () => {
-        fetch('http://localhost:3001/cars')
+        // fetch('http://localhost:3001/cars')
+        fetch('/api/cars.js')
             .then(response => response.json())
             .then(data => {
                 cars = data;
